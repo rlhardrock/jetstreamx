@@ -15,6 +15,18 @@ class CreateProfilesTable extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
+            $table->string('profession')->nullable();
+            $table->text('biography')->nullable();
+            $table->string('website')->nullable();
+            $table->string('vkontakte')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('github')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('tube')->nullable();
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

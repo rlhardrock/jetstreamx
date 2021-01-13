@@ -15,6 +15,16 @@ class CreateAdaptationsTable extends Migration
     {
         Schema::create('adaptations', function (Blueprint $table) {
             $table->id();
+            $table->string('country')->nullable();
+            $table->string('city')->nullable();
+            $table->string('region')->nullable();
+            $table->string('weather')->nullable();
+            $table->string('latitude')->nullable();
+            $table->string('ecosystem')->nullable();
+
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

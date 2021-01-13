@@ -15,6 +15,11 @@ class CreatePlatformsTable extends Migration
     {
         Schema::create('platforms', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+
+            $table->unsignedBigInteger('lesson_id');
+            $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

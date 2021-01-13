@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Course extends Model
 {
     use HasFactory;
+
+    const STANDBY = 1;
+    const AUDIT = 2;
+    const OK = 3;
 }
